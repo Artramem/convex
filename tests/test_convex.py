@@ -234,32 +234,46 @@ class TestPerimeter():
 
     # Тесты с фигурами
 
-    # Треугольник, все точки внутри кольца, 
+    # Треугольник, все точки внутри кольца,
     # нижняя сторона пересекает маленькую окружность
 
     def test7(self):
-        a = Void().add(R2Point(1.5, 0)).add(R2Point(-1.5, 0)).add(R2Point(0, 1.5))
+        a = Void().add(
+                R2Point(1.5, 0)).add(
+                R2Point(-1.5, 0)).add(
+                R2Point(0, 1.5))
         assert round(a.perimeter_in_circle(), 2) == 5.24
 
     # Треугольник, лежащий полностью в кольце
     # (Периметр равен периметру внутри кольца)
     def test8(self):
-        a = Void().add(R2Point(1.5, 0)).add(R2Point(1.6, 0)).add(R2Point(1.6, 1))
+        a = Void().add(
+                R2Point(1.5, 0)).add(
+                R2Point(1.6, 0)).add(
+                R2Point(1.6, 1))
         assert a.perimeter_in_circle() == a.perimeter()
 
     # Прямоугольник, нижняя сторона полностью в маленькой окружности
     def test9(self):
-        a = Void().add(R2Point(-1, 0)).add(R2Point(-1, 1)).add(R2Point(1, 1)).add(R2Point(1, 0))
+        a = Void().add(R2Point(-1, 0)).add(
+                R2Point(-1, 1)).add(
+                R2Point(1, 1)).add(
+                R2Point(1, 0))
         assert a.perimeter_in_circle() == 4.0
 
     # Прямоугольник вне кольца
     def test10(self):
-        a = Void().add(R2Point(-4, -4)).add(R2Point(-4, 4)).add(R2Point(4, 4)).add(R2Point(4, -4))
+        a = Void().add(R2Point(-4, -4)).add(
+                R2Point(-4, 4)).add(
+                R2Point(4, 4)).add(
+                R2Point(4, -4))
         assert a.perimeter_in_circle() == 0
 
     # Фигура, похожая на дом
     def test11(self):
-        a = Void().add(R2Point(-1.5, 0)).add(R2Point(-1.5, 1)).add(R2Point(0, 2)).add(R2Point(1.5, 1)).add(R2Point(1.5, 0))
+        a = Void().add(R2Point(-1.5, 0)).add(
+                R2Point(-1.5, 1)).add(R2Point(0, 2)).add(
+                R2Point(1.5, 1)).add(R2Point(1.5, 0))
         assert round(a.perimeter_in_circle(), 2) == 6.61
 
 
