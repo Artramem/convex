@@ -39,7 +39,8 @@ try:
         f = f.add(R2Point())
         tk.clean()
         f.draw(tk)
-        print(f"S = {f.area()}, P = {f.perimeter()}, P_Circle = {f.perimeter_in_circle()}\n")
+        print(f"S = {f.area()}, P = {f.perimeter()},"
+              f"P_Circle = {f.perimeter_in_circle()}\n")
 except(EOFError, KeyboardInterrupt):
     print("\nStop")
     tk.close()

@@ -61,7 +61,8 @@ class Segment(Figure):
             x2 = self.q.x
             y1 = sqrt(4 - x1**2)
             y2 = -sqrt(4 - x2**2)
-            if (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)) and (min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
+            if (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y) and
+                    min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)):
                 if(r1 > 2):
@@ -80,7 +81,8 @@ class Segment(Figure):
             y2 = self.q.y
             x1 = sqrt(4 - y1**2)
             x2 = -sqrt(4 - y1**2)
-            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)) and (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
+            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x) and
+                    min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
                 if(r1 > 2):
@@ -105,10 +107,11 @@ class Segment(Figure):
             t1 = -B / A
             t2 = -C / A
             var('y')
-            y1, y2 = solveset((t1*y - t2)**2 + y**2 - 4, y, domain = S.Reals)
+            y1, y2 = solveset((t1*y - t2)**2 + y**2 - 4, y, domain=S.Reals)
             x1 = t1*y1 - t2
             x2 = t1*y2 - t2
-            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)) and (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
+            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x) and
+                    min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
                 if(r1 > 2):
@@ -131,7 +134,8 @@ class Segment(Figure):
             x2 = self.q.x
             y1 = sqrt(1 - x1**2)
             y2 = -sqrt(1 - x2**2)
-            if (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)) and (min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
+            if (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y) and
+                    min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)):
                 if(r1 > 2):
@@ -150,7 +154,8 @@ class Segment(Figure):
             y2 = self.q.y
             x1 = sqrt(1 - y1**2)
             x2 = -sqrt(1 - y1**2)
-            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)) and (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
+            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x) and
+                    min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
                 if(r1 > 1):
@@ -175,10 +180,11 @@ class Segment(Figure):
             t1 = -B / A
             t2 = -C / A
             var('y')
-            y1, y2 = solveset((t1*y - t2)**2 + y**2 - 1, y, domain = S.Reals)
+            y1, y2 = solveset((t1*y - t2)**2 + y**2 - 1, y, domain=S.Reals)
             x1 = t1*y1 - t2
             x2 = t1*y2 - t2
-            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)) and (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
+            if (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x) and
+                    min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
                 if(r1 > 1):
@@ -227,7 +233,10 @@ class Polygon(Figure):
             self.points.push_last(a)
             self.points.push_first(c)
         self._perimeter = a.dist(b) + b.dist(c) + c.dist(a)
-        self._perimeter_in_circle = Void().add(a).add(b).perimeter_in_circle()/2 + Void().add(a).add(c).perimeter_in_circle()/2 + Void().add(b).add(c).perimeter_in_circle()/2
+        tmp = (Void().add(a).add(b).perimeter_in_circle()/2 +
+               Void().add(a).add(c).perimeter_in_circle()/2 +
+               Void().add(b).add(c).perimeter_in_circle()/2)
+        self._perimeter_in_circle = tmp
         self._area = abs(R2Point.area(a, b, c))
 
     def perimeter(self):
@@ -253,7 +262,9 @@ class Polygon(Figure):
 
             # учёт удаления ребра, соединяющего конец и начало дека
             self._perimeter -= self.points.first().dist(self.points.last())
-            self._perimeter_in_circle -= Void().add(self.points.first()).add(self.points.last()).perimeter_in_circle()/2
+            tmp = Void().add(self.points.first()).add(self.points.last())
+            tmp = tmp.perimeter_in_circle()/2
+            self._perimeter_in_circle -= tmp
             self._area += abs(R2Point.area(t,
                                            self.points.last(),
                                            self.points.first()))
@@ -262,7 +273,9 @@ class Polygon(Figure):
             p = self.points.pop_first()
             while t.is_light(p, self.points.first()):
                 self._perimeter -= p.dist(self.points.first())
-                self._perimeter_in_circle -= Void().add(p).add(self.points.first()).perimeter_in_circle()/2
+                tmp = Void().add(p).add(self.points.first())
+                tmp = tmp.perimeter_in_circle()/2
+                self._perimeter_in_circle -= tmp
                 self._area += abs(R2Point.area(t, p, self.points.first()))
                 p = self.points.pop_first()
             self.points.push_first(p)
@@ -271,7 +284,9 @@ class Polygon(Figure):
             p = self.points.pop_last()
             while t.is_light(self.points.last(), p):
                 self._perimeter -= p.dist(self.points.last())
-                self._perimeter_in_circle -= Void().add(p).add(self.points.last()).perimeter_in_circle()/2
+                tmp = Void().add(p).add(self.points.last())
+                tmp = tmp.perimeter_in_circle()/2
+                self._perimeter_in_circle -= tmp
                 self._area += abs(R2Point.area(t, p, self.points.last()))
                 p = self.points.pop_last()
             self.points.push_last(p)
@@ -279,7 +294,11 @@ class Polygon(Figure):
             # добавление двух новых рёбер
             self._perimeter += t.dist(self.points.first()) + \
                 t.dist(self.points.last())
-            self._perimeter_in_circle += Void().add(t).add(self.points.first()).perimeter_in_circle()/2 + Void().add(t).add(self.points.last()).perimeter_in_circle()/2
+            tmp1 = Void().add(t).add(self.points.first())
+            tmp1 = tmp1.perimeter_in_circle()/2
+            tmp2 = Void().add(t).add(self.points.last())
+            tmp2 = tmp2.perimeter_in_circle()/2
+            self._perimeter_in_circle += tmp1 + tmp2
             self.points.push_first(t)
 
         return self
