@@ -56,7 +56,7 @@ class Segment(Figure):
     def dist_4(self, r1, r2):
         if (r1 <= 2) and (r2 <= 2):
             return R2Point.dist(self.p, self.q)
-        elif(self.p.x == self.q.x):
+        elif (self.p.x == self.q.x):
             x1 = self.p.x
             x2 = self.q.x
             y1 = sqrt(4 - x1**2)
@@ -65,12 +65,12 @@ class Segment(Figure):
                     min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x1, y1), self.q)
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
@@ -90,7 +90,7 @@ class Segment(Figure):
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
@@ -114,12 +114,12 @@ class Segment(Figure):
                     min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x1, y1), self.q)
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
@@ -129,7 +129,7 @@ class Segment(Figure):
     def dist_1(self, r1, r2):
         if (r1 <= 1) and (r2 <= 1):
             return R2Point.dist(self.p, self.q)
-        elif(self.p.x == self.q.x):
+        elif (self.p.x == self.q.x):
             x1 = self.p.x
             x2 = self.q.x
             y1 = sqrt(1 - x1**2)
@@ -138,7 +138,7 @@ class Segment(Figure):
                     min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.y, self.q.y) < y1 < max(self.p.y, self.q.y)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x1, y1), self.q)
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
@@ -158,12 +158,12 @@ class Segment(Figure):
                     min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
-                if(r1 > 1):
+                if (r1 > 1):
                     return R2Point.dist(R2Point(x1, y1), self.q)
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
-                if(r1 > 1):
+                if (r1 > 1):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
@@ -187,12 +187,12 @@ class Segment(Figure):
                     min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
                 return R2Point.dist(R2Point(x1, y1), R2Point(x2, y2))
             elif (min(self.p.x, self.q.x) < x1 < max(self.p.x, self.q.x)):
-                if(r1 > 1):
+                if (r1 > 1):
                     return R2Point.dist(R2Point(x1, y1), self.q)
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.x, self.q.x) < x2 < max(self.p.x, self.q.x)):
-                if(r1 > 1):
+                if (r1 > 1):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
@@ -212,7 +212,7 @@ class Segment(Figure):
         r2 = math.sqrt(self.q.x**2 + self.q.y**2)
         if (d >= 2):
             return 0.0
-        elif(1 <= d < 2):
+        elif (1 <= d < 2):
             return 2*self.dist_4(r1, r2)
         else:
             dist4 = self.dist_4(r1, r2)

@@ -41,6 +41,6 @@ try:
         f.draw(tk)
         print(f"S = {f.area()}, P = {f.perimeter()},"
               f"P_Circle = {f.perimeter_in_circle()}\n")
-except(EOFError, KeyboardInterrupt):
+except (EOFError, KeyboardInterrupt):
     print("\nStop")
     tk.close()
