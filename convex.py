@@ -143,7 +143,7 @@ class Segment(Figure):
                 else:
                     return R2Point.dist(R2Point(x1, y1), self.p)
             elif (min(self.p.y, self.q.y) < y2 < max(self.p.y, self.q.y)):
-                if(r1 > 2):
+                if (r1 > 2):
                     return R2Point.dist(R2Point(x2, y2), self.q)
                 else:
                     return R2Point.dist(R2Point(x2, y2), self.p)
